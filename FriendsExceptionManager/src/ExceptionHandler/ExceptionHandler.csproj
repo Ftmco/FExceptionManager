@@ -6,8 +6,6 @@
 
   <ItemGroup>
     <Folder Include="ViewModels\" />
-    <Folder Include="Tools\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>

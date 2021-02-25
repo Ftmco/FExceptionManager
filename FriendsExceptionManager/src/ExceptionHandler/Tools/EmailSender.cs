@@ -4,27 +4,40 @@ using System.Threading.Tasks;
 
 namespace ExceptionHandler.Tools
 {
+    /// <summary>
+    /// Email Sender Service
+    /// </summary>
     public interface IEmailSender
     {
-        Task SendEmailAsync();
+        /// <summary>
+        /// Send Email Async
+        /// </summary>
+        /// <param name="email">Email Info</param>
+        Task SendEmailAsync(EmailViewModel email);
     }
 
+    /// <summary>
+    /// Email Sender Service Impelement IEmailSender 
+    /// </summary>
     public class EmailSender : IEmailSender
     {
-        public async Task SendEmailAsync() => await Task.Run(() =>
+        public async Task SendEmailAsync(EmailViewModel email) => await Task.Run(() =>
         {
             MailMessage mailMessage = new()
             {
-                IsBodyHtml = true,
-                From = new("", ""),
-                Subject = "",
-                Body = ""
+                IsBodyHtml = email.IsBodyHtml,
+                From = new(email.From, email.DisplayName),
+                Subject = email.Subject,
+                Body = email.Body
             };
+
+            mailMessage.To.Add(email.To);
+
             SmtpClient smtpClient = new()
             {
-                Port = 25,
-                Credentials = new NetworkCredential("", ""),
-                EnableSsl = false
+                Port = email.Port,
+                Credentials = new NetworkCredential(email.UserName, email.Password),
+                EnableSsl = email.EnableSSL
             };
 
             smtpClient.Send(mailMessage);
