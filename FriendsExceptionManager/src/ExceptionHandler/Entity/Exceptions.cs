@@ -1,7 +1,7 @@
 ﻿using System;
 
 /// <summary>
-/// Exceptions
+/// Exceptions Table
 /// </summary>
 public record Exceptions
 {
@@ -26,9 +26,14 @@ public record Exceptions
     public string InnerException { get; set; }
 
     /// <summary>
-    /// Trace Back Exception 
+    /// Stack Trace  Exception 
     /// </summary>
-    public string TraceBack { get; set; }
+    public string StackTrace { get; set; }
+
+    /// <summary>
+    /// Exception Source 
+    /// </summary>
+    public string Source { get; set; }
 
     /// <summary>
     /// Date Time
