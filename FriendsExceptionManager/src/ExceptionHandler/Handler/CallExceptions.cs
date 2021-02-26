@@ -57,7 +57,7 @@ namespace ExceptionHandler.Handler
             //Save changes
             await _services.SaveAsync();
             //Invoke Event
-            await _event.InvokeEventAsync();
+            await _event.InvokeEventAsync(newException);
         });
 
     }

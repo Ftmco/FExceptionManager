@@ -11,10 +11,17 @@ namespace ExceptionHandler.Notify
 {
     public partial class Notification
     {
-        private async void ExceptionOccurred()
+        private async void ExceptionOccurred(object sender)
         {
             IConfigurationSection section = Configuration.GetSection("FEH");
-           
+            if (section != null)
+            {
+                IEnumerable<IConfigurationSection> sectionChilderns = section.GetChildren();
+                _email.SendEmailAsync(new EmailViewModel
+                {
+                   
+                });
+            }
         }
     }
 
@@ -25,11 +32,12 @@ namespace ExceptionHandler.Notify
 
         public IConfiguration Configuration { get; set; }
 
-        public Notification()
+        public Notification(IConfiguration configuration)
         {
             _email = new EmailSender();
             _event = new ExceptionEvents();
             _event.ExceptionOccurred += ExceptionOccurred;
+            Configuration = configuration;
         }
     }
 }
