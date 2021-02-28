@@ -1,4 +1,8 @@
-﻿using System;
+﻿using ExceptionHandler.Tools;
+using Microsoft.Extensions.Configuration;
+using System;
+using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace ExceptionHandler.Events
@@ -6,7 +10,7 @@ namespace ExceptionHandler.Events
     /// <summary>
     /// Exception Event Delegate
     /// </summary>
-    public delegate void ExceptionEventDelegate(object sender, Exceptions email);
+    public delegate void ExceptionEventDelegate(object sender, ExceptionEventArgs e);
 
 
     /// <summary>
@@ -19,13 +23,11 @@ namespace ExceptionHandler.Events
         /// </summary>
         event ExceptionEventDelegate ExceptionOccurred;
 
-        event EventHandler ExceptionOccurred2;
-
         /// <summary>
         /// Inoke Event Excetpion 
         /// Use 'await' Before Call This
         /// </summary>
-        Task InvokeEventAsync(object sender, Exceptions email);
+        Task InvokeEventAsync(object sender, ExceptionEventArgs e);
     }
 
     /// <summary>
@@ -35,12 +37,34 @@ namespace ExceptionHandler.Events
     {
         public event ExceptionEventDelegate ExceptionOccurred;
 
-        public event EventHandler ExceptionOccurred2;
+        private readonly IEmailSender _email;
 
-        public async Task InvokeEventAsync(object sender, Exceptions email) => await Task.Run(() =>
+        public IConfiguration Configuration { get; set; }
+
+        public ExceptionEvents(IConfiguration configuration)
         {
+            Configuration = configuration;
+            _email = new EmailSender();
+            ExceptionOccurred += OnExceptionOccurred;
+        }
 
-            ExceptionOccurred2(sender, new ExceptionEventArgs() { Exception = email });
+        private async void OnExceptionOccurred(object sender, ExceptionEventArgs e)
+        {
+            JsonDocument jsonDocument = new();
+            if (section != null)
+            {
+                IEnumerable<IConfigurationSection> sectionChilderns = section.GetChildren();
+                await _email.SendEmailAsync(new EmailViewModel
+                {
+
+                });
+            }
+        }
+
+        public async Task InvokeEventAsync(object sender, ExceptionEventArgs e) => await Task.Run(() =>
+        {
+            ExceptionOccurred?.Invoke(sender, e);
+
         });
     }
 

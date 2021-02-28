@@ -11,7 +11,7 @@ namespace ExceptionHandler.Notify
 {
     public partial class Notification
     {
-        private async void ExceptionOccurred(object sender,Exceptions email)
+        private async void ExceptionOccurred(object sender,ExceptionEventArgs e)
         {
             IConfigurationSection section = Configuration.GetSection("FEH");
             if (section != null)
@@ -35,7 +35,7 @@ namespace ExceptionHandler.Notify
         public Notification(IConfiguration configuration)
         {
             _email = new EmailSender();
-            _event = new ExceptionEvents();
+            _event = new ExceptionEvents(Configuration);
             _event.ExceptionOccurred += ExceptionOccurred;
             Configuration = configuration;
         }

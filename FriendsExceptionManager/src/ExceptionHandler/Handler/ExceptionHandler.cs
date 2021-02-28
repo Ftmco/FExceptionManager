@@ -48,9 +48,6 @@ namespace ExceptionHandler.Handler
 
                 //Redirect Request To 500 Internal Server Error Page
                 context.Response.Redirect("/500err");
-
-                //Run Application
-                await _request(context);
             }
         }
     }

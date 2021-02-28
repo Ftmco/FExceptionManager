@@ -1,5 +1,6 @@
 ﻿using ExceptionHandler.Events;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Services.GenericRepository.ServicesController;
 using System;
 using System.Threading.Tasks;
@@ -21,13 +22,15 @@ namespace ExceptionHandler.Handler
         /// </summary>
         private readonly IExceptionEvents _event;
 
+        private IConfiguration Configuration { get; }
+
         /// <summary>
         /// Call Exceptions Constractor
         /// </summary>
         public CallExceptions()
         {
             _services = new ServiceController<Exceptions, ExceptionsDbContext>();
-            _event = new ExceptionEvents();
+            _event = new ExceptionEvents(Configuration);
         }
 
         #endregion
@@ -57,7 +60,7 @@ namespace ExceptionHandler.Handler
             //Save changes
             await _services.SaveAsync();
             //Invoke Event
-            await _event.InvokeEventAsync(this,newException);
+            await _event.InvokeEventAsync(this, new ExceptionEventArgs { Exception = newException });
         });
 
     }
