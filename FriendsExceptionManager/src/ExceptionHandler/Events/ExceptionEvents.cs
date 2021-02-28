@@ -50,7 +50,7 @@ namespace ExceptionHandler.Events
 
         private async void OnExceptionOccurred(object sender, ExceptionEventArgs e)
         {
-            JsonDocument jsonDocument = new();
+            IConfigurationSection section = Configuration.GetSection("FEH");
             if (section != null)
             {
                 IEnumerable<IConfigurationSection> sectionChilderns = section.GetChildren();
@@ -62,10 +62,7 @@ namespace ExceptionHandler.Events
         }
 
         public async Task InvokeEventAsync(object sender, ExceptionEventArgs e) => await Task.Run(() =>
-        {
-            ExceptionOccurred?.Invoke(sender, e);
-
-        });
+            ExceptionOccurred?.Invoke(sender, e));
     }
 
 
