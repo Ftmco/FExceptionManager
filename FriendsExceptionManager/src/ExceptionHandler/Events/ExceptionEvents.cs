@@ -38,6 +38,8 @@ namespace ExceptionHandler.Events
         public event EventHandler ExceptionOccurred2;
 
         public async Task InvokeEventAsync(object sender, Exceptions email) => await Task.Run(() =>
+        {
+
             ExceptionOccurred2(sender, new ExceptionEventArgs() { Exception = email });
         });
     }
