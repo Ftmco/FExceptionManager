@@ -42,6 +42,7 @@ namespace Example
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseMiddleware<ExceptionHandler.Handler.ExceptionHandler>();
 
             app.UseRouting();
 

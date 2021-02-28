@@ -11,15 +11,15 @@ namespace ExceptionHandler.Notify
 {
     public partial class Notification
     {
-        private async void ExceptionOccurred(object sender)
+        private async void ExceptionOccurred(object sender,Exceptions email)
         {
             IConfigurationSection section = Configuration.GetSection("FEH");
             if (section != null)
             {
                 IEnumerable<IConfigurationSection> sectionChilderns = section.GetChildren();
-                _email.SendEmailAsync(new EmailViewModel
+                await _email.SendEmailAsync(new EmailViewModel
                 {
-                   
+                    
                 });
             }
         }

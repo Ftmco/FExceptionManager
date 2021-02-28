@@ -6,7 +6,7 @@ namespace ExceptionHandler.Events
     /// <summary>
     /// Exception Event Delegate
     /// </summary>
-    public delegate void ExceptionEventDelegate(object sender);
+    public delegate void ExceptionEventDelegate(object sender, Exceptions email);
 
 
     /// <summary>
@@ -19,11 +19,13 @@ namespace ExceptionHandler.Events
         /// </summary>
         event ExceptionEventDelegate ExceptionOccurred;
 
+        event EventHandler ExceptionOccurred2;
+
         /// <summary>
         /// Inoke Event Excetpion 
         /// Use 'await' Before Call This
         /// </summary>
-        Task InvokeEventAsync(object sender);
+        Task InvokeEventAsync(object sender, Exceptions email);
     }
 
     /// <summary>
@@ -33,7 +35,17 @@ namespace ExceptionHandler.Events
     {
         public event ExceptionEventDelegate ExceptionOccurred;
 
-        public async Task InvokeEventAsync(object sender) => await Task.Run(() => ExceptionOccurred.Invoke(sender));
+        public event EventHandler ExceptionOccurred2;
+
+        public async Task InvokeEventAsync(object sender, Exceptions email) => await Task.Run(() =>
+            ExceptionOccurred2(sender, new ExceptionEventArgs() { Exception = email });
+        });
+    }
+
+
+    public class ExceptionEventArgs : EventArgs
+    {
+        public Exceptions Exception { get; set; }
     }
 
 }

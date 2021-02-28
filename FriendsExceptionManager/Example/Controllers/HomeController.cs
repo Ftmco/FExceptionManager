@@ -20,6 +20,7 @@ namespace Example.Controllers
 
         public IActionResult Index()
         {
+            int.Parse("asdasd0");
             return View();
         }
 

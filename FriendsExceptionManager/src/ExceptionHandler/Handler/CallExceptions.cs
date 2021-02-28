@@ -1,6 +1,6 @@
 ﻿using ExceptionHandler.Events;
-using Fteam.Generic_Repository.Services_Controller;
 using Microsoft.AspNetCore.Http;
+using Services.GenericRepository.ServicesController;
 using System;
 using System.Threading.Tasks;
 
@@ -44,7 +44,7 @@ namespace ExceptionHandler.Handler
             Exceptions newException = new()
             {
                 Date = DateTime.Now,
-                InnerException = exception.InnerException.Message,
+                InnerException = exception.InnerException?.Message,
                 Message = exception.Message,
                 Path = httpContext.Request.Path,
                 RemoteConnectionIpAddress = httpContext.Connection.RemoteIpAddress.ToString(),
@@ -57,7 +57,7 @@ namespace ExceptionHandler.Handler
             //Save changes
             await _services.SaveAsync();
             //Invoke Event
-            await _event.InvokeEventAsync(newException);
+            await _event.InvokeEventAsync(this,newException);
         });
 
     }
