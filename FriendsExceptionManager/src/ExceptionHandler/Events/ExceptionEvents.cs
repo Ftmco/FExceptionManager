@@ -1,7 +1,9 @@
 ﻿using ExceptionHandler.Tools;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -39,23 +41,24 @@ namespace ExceptionHandler.Events
 
         private readonly IEmailSender _email;
 
-        public IConfiguration Configuration { get; set; }
-
-        public ExceptionEvents(IConfiguration configuration)
+        public ExceptionEvents()
         {
-            Configuration = configuration;
             _email = new EmailSender();
             ExceptionOccurred += OnExceptionOccurred;
         }
 
         private async void OnExceptionOccurred(object sender, ExceptionEventArgs e)
         {
-            IConfigurationSection section = Configuration.GetSection("FEH");
-            if (section != null)
+            string stringJson = File.ReadAllText("/appsettings.json");
+            if (!string.IsNullOrEmpty(stringJson))
             {
-                IEnumerable<IConfigurationSection> sectionChilderns = section.GetChildren();
+                object json = JsonConvert.DeserializeObject(stringJson);
                 await _email.SendEmailAsync(new EmailViewModel
                 {
+                    Body = $"Message : {e.Exception.Message} \n Inner Exception : {e.Exception.InnerException} \n Source : {e.Exception.Source} \n Path : {e.Exception.Path} \n Date Time : {e.Exception.Date}",
+                    DisplayName = "Exception Occerrud",
+                    IsBodyHtml = true,
+                    Subject = "Application Has Exception",
 
                 });
             }

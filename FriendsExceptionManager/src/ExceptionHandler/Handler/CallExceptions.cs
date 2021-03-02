@@ -30,7 +30,7 @@ namespace ExceptionHandler.Handler
         public CallExceptions()
         {
             _services = new ServiceController<Exceptions, ExceptionsDbContext>();
-            _event = new ExceptionEvents(Configuration);
+            _event = new ExceptionEvents();
         }
 
         #endregion
