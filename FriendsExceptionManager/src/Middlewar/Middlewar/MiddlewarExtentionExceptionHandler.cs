@@ -23,9 +23,7 @@ namespace Fteam.Middlewar
         public static IApplicationBuilder UseFExceptionHandler(this IApplicationBuilder app)
         {
             if (app == null)
-            {
                 throw new ArgumentNullException(nameof(app));
-            }
 
             return app.UseMiddleware<FExceptionHandlerMiddelware>();
         }
@@ -39,9 +37,7 @@ namespace Fteam.Middlewar
         public static IApplicationBuilder UseFExceptionHandler(this IApplicationBuilder app, string errorHandelingPath)
         {
             if (app == null)
-            {
                 throw new ArgumentNullException(nameof(app));
-            }
 
             StaticVariables.ErrorHandeligPath = errorHandelingPath ??
                 throw new ArgumentNullException(nameof(errorHandelingPath));
@@ -58,9 +54,7 @@ namespace Fteam.Middlewar
         public static IApplicationBuilder UseFExceptionHandler(this IApplicationBuilder app, FTServerEmailOptions emailOptions)
         {
             if (app == null)
-            {
                 throw new ArgumentNullException(nameof(app));
-            }
 
             StaticVariables.FTServerEmailOptions = emailOptions ??
                 throw new ArgumentNullException(nameof(emailOptions));
@@ -77,9 +71,7 @@ namespace Fteam.Middlewar
         public static IApplicationBuilder UseFExceptionHandler(this IApplicationBuilder app, FTExceptionHandlerOptions exceptionHandlerOptions)
         {
             if (app == null)
-            {
                 throw new ArgumentNullException(nameof(app));
-            }
 
             StaticVariables.FTExceptionHandlerOptions = exceptionHandlerOptions ??
                 throw new ArgumentNullException(nameof(exceptionHandlerOptions));
