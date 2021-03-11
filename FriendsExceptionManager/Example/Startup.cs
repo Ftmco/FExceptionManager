@@ -38,7 +38,6 @@ namespace Example
             app.UseStaticFiles();
 
 
-            app.UseMiddleware<ExceptionHandler.Handler.ExceptionHandler>();
 
             app.UseRouting();
 
