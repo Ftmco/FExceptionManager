@@ -1,4 +1,5 @@
 ﻿using Fteam.Middlewar.Models;
+using Fteam.Middlewar.StaticVarables;
 using Microsoft.AspNetCore.Builder;
 using System;
 
@@ -13,6 +14,7 @@ namespace Fteam.Middlewar
     /// </summary>
     public static class FExceptionHandler
     {
+
         /// <summary>
         /// Using Friends Asp.net core Exception Handler Midddleware
         /// </summary>
@@ -41,10 +43,8 @@ namespace Fteam.Middlewar
                 throw new ArgumentNullException(nameof(app));
             }
 
-            if (errorHandelingPath == null)
-            {
+            StaticVariables.ErrorHandeligPath = errorHandelingPath ??
                 throw new ArgumentNullException(nameof(errorHandelingPath));
-            }
 
             return app.UseMiddleware<FExceptionHandlerMiddelware>();
         }
@@ -62,10 +62,8 @@ namespace Fteam.Middlewar
                 throw new ArgumentNullException(nameof(app));
             }
 
-            if (emailOptions == null)
-            {
+            StaticVariables.FTServerEmailOptions = emailOptions ??
                 throw new ArgumentNullException(nameof(emailOptions));
-            }
 
             return app.UseMiddleware<FExceptionHandlerMiddelware>();
         }
@@ -83,10 +81,8 @@ namespace Fteam.Middlewar
                 throw new ArgumentNullException(nameof(app));
             }
 
-            if (exceptionHandlerOptions == null)
-            {
+            StaticVariables.FTExceptionHandlerOptions = exceptionHandlerOptions ??
                 throw new ArgumentNullException(nameof(exceptionHandlerOptions));
-            }
 
             return app.UseMiddleware<FExceptionHandlerMiddelware>();
         }
