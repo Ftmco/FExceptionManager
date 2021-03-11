@@ -28,7 +28,12 @@ namespace Fteam.Middlewar
             return app.UseMiddleware<FExceptionHandlerMiddelware>();
         }
 
-
+        /// <summary>
+        ///  Using Friends Asp.net core Exception Handler Midddleware
+        /// </summary>
+        /// <param name="app">IApplicationBuilder</param>
+        /// <param name="errorHandelingPath">Error Handeling Path To Redirect Application </param>
+        /// <returns>a reference to this instance after opration is compelete</returns>
         public static IApplicationBuilder UseFExceptionHandler(this IApplicationBuilder app, string errorHandelingPath)
         {
             if (app == null)
@@ -44,6 +49,12 @@ namespace Fteam.Middlewar
             return app.UseMiddleware<FExceptionHandlerMiddelware>();
         }
 
+        /// <summary>
+        /// Using Friends Asp.net core Exception Handler Midddleware
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="emailOptions"></param>
+        /// <returns>a reference to this instance after opration is compelete</returns>
         public static IApplicationBuilder UseFExceptionHandler(this IApplicationBuilder app, FTServerEmailOptions emailOptions)
         {
             if (app == null)
@@ -59,6 +70,12 @@ namespace Fteam.Middlewar
             return app.UseMiddleware<FExceptionHandlerMiddelware>();
         }
 
+        /// <summary>
+        /// Using Friends Asp.net core Exception Handler Midddleware
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="exceptionHandlerOptions"></param>
+        /// <returns>a reference to this instance after opration is compelete</returns>
         public static IApplicationBuilder UseFExceptionHandler(this IApplicationBuilder app, FTExceptionHandlerOptions exceptionHandlerOptions)
         {
             if (app == null)

@@ -38,7 +38,7 @@ namespace Example
             app.UseStaticFiles();
 
 
-
+app.UseExceptionHandler()
             app.UseRouting();
 
             app.UseAuthorization();
