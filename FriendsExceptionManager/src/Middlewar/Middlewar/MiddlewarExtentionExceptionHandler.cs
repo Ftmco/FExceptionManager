@@ -48,8 +48,8 @@ namespace Fteam.Middlewar
         /// <summary>
         /// Using Friends Asp.net core Exception Handler Midddleware
         /// </summary>
-        /// <param name="app"></param>
-        /// <param name="emailOptions"></param>
+        /// <param name="app">IApplicationBuilder</param>
+        /// <param name="emailOptions">Send Email Options When Exception Occerrud</param>
         /// <returns>a reference to this instance after opration is compelete</returns>
         public static IApplicationBuilder UseFExceptionHandler(this IApplicationBuilder app, FTServerEmailOptions emailOptions)
         {
@@ -65,8 +65,8 @@ namespace Fteam.Middlewar
         /// <summary>
         /// Using Friends Asp.net core Exception Handler Midddleware
         /// </summary>
-        /// <param name="app"></param>
-        /// <param name="exceptionHandlerOptions"></param>
+        /// <param name="app">IApplicationBuilder</param>
+        /// <param name="exceptionHandlerOptions">Send Email And Exception Error Handeling Path Options</param>
         /// <returns>a reference to this instance after opration is compelete</returns>
         public static IApplicationBuilder UseFExceptionHandler(this IApplicationBuilder app, FTExceptionHandlerOptions exceptionHandlerOptions)
         {
