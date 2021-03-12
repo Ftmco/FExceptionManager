@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30626.31
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "Example\Example.csproj", "{135B5410-26AD-47A3-9F3E-8834A9DAAC1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example", "Example\Example.csproj", "{135B5410-26AD-47A3-9F3E-8834A9DAAC1B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{15CC39B2-3EFF-434F-95F0-31FC1158BB85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionHandler", "src\ExceptionHandler\ExceptionHandler.csproj", "{6131C862-296D-4B5D-ACED-D2C104CF0D0B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middlewar", "Src\Middlewar\Middlewar.csproj", "{D32FD2AE-D501-41FB-8412-ECE0F6307F17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,16 +19,16 @@ Global
 		{135B5410-26AD-47A3-9F3E-8834A9DAAC1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{135B5410-26AD-47A3-9F3E-8834A9DAAC1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{135B5410-26AD-47A3-9F3E-8834A9DAAC1B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6131C862-296D-4B5D-ACED-D2C104CF0D0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6131C862-296D-4B5D-ACED-D2C104CF0D0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6131C862-296D-4B5D-ACED-D2C104CF0D0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6131C862-296D-4B5D-ACED-D2C104CF0D0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D32FD2AE-D501-41FB-8412-ECE0F6307F17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D32FD2AE-D501-41FB-8412-ECE0F6307F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D32FD2AE-D501-41FB-8412-ECE0F6307F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D32FD2AE-D501-41FB-8412-ECE0F6307F17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{6131C862-296D-4B5D-ACED-D2C104CF0D0B} = {15CC39B2-3EFF-434F-95F0-31FC1158BB85}
+		{D32FD2AE-D501-41FB-8412-ECE0F6307F17} = {15CC39B2-3EFF-434F-95F0-31FC1158BB85}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {61F9A5BE-9986-4C62-B06B-18736FC1687C}
