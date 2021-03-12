@@ -1,4 +1,5 @@
 using Fteam.Middlewar;
+using Fteam.Middlewar.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -39,7 +40,7 @@ namespace Example
             app.UseStaticFiles();
 
 
-            app.UseFExceptionHandler("/500Err");
+            app.UseFExceptionHandler("/500");
 
             app.UseRouting();
 

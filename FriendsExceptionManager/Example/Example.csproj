@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\src\ExceptionHandler\ExceptionHandler.csproj" />
+    <ProjectReference Include="..\Src\Middlewar\Middlewar.csproj" />
   </ItemGroup>
 
 </Project>
