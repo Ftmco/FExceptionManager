@@ -25,7 +25,7 @@ namespace Fteam.Middlewar
             if (app == null)
                 throw new ArgumentNullException(nameof(app));
 
-            return app.UseMiddleware<FExceptionHandlerMiddelware>();
+            return app.UseMiddleware<FExceptionHandlerMiddleware>();
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace Fteam.Middlewar
             StaticVariables.ErrorHandeligPath = errorHandelingPath ??
                 throw new ArgumentNullException(nameof(errorHandelingPath));
 
-            return app.UseMiddleware<FExceptionHandlerMiddelware>();
+            return app.UseMiddleware<FExceptionHandlerMiddleware>();
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Fteam.Middlewar
             StaticVariables.FTServerEmailOptions = emailOptions ??
                 throw new ArgumentNullException(nameof(emailOptions));
 
-            return app.UseMiddleware<FExceptionHandlerMiddelware>();
+            return app.UseMiddleware<FExceptionHandlerMiddleware>();
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace Fteam.Middlewar
             StaticVariables.FTExceptionHandlerOptions = exceptionHandlerOptions ??
                 throw new ArgumentNullException(nameof(exceptionHandlerOptions));
 
-            return app.UseMiddleware<FExceptionHandlerMiddelware>();
+            return app.UseMiddleware<FExceptionHandlerMiddleware>();
         }
     }
 }

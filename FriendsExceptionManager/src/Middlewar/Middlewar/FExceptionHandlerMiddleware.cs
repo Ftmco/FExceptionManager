@@ -6,14 +6,14 @@ namespace Fteam.Middlewar
     /// <summary>
     /// Exception Handler Middelware
     /// </summary>
-    public class FExceptionHandlerMiddelware
+    public class FExceptionHandlerMiddleware
     {
         /// <summary>
         /// Http Request Delegate
         /// </summary>
         private readonly RequestDelegate _next;
 
-        public FExceptionHandlerMiddelware(RequestDelegate next) => _next = next;
+        public FExceptionHandlerMiddleware(RequestDelegate next) => _next = next;
 
         public async Task Invoke(HttpContext context)
         {
