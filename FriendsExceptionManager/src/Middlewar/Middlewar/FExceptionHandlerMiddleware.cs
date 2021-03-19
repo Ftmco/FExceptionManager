@@ -13,6 +13,10 @@ namespace Fteam.Middlewar
         /// </summary>
         private readonly RequestDelegate _next;
 
+        /// <summary>
+        /// Friends Exception Handler Constractor
+        /// </summary>
+        /// <param name="next"></param>
         public FExceptionHandlerMiddleware(RequestDelegate next) => _next = next;
 
         public async Task Invoke(HttpContext context)
@@ -25,6 +29,7 @@ namespace Fteam.Middlewar
                 }
                 catch
                 {
+                    context.
                     await _next(context);
                 }
             });
