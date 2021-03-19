@@ -90,4 +90,20 @@
         /// </summary>
         public FTServerEmailOptions SendEmailOptions { get; set; }
     }
+
+    /// <summary>
+    /// Send Email Model
+    /// </summary>
+    public record EmailModel 
+    {
+        /// <summary>
+        /// Email Content
+        /// </summary>
+        public FTSnedEmailModel SendEmail { get; set; }
+
+        /// <summary>
+        /// Email Server 
+        /// </summary>
+        public FTServerEmailOptions EmailServerOptions { get; set; }
+    }
 }
