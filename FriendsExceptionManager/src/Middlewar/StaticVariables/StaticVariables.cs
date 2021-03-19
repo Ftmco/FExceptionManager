@@ -1,6 +1,6 @@
-﻿using Fteam.Middlewar.Models;
+﻿using FTeam.Middlewar.Models;
 
-namespace Fteam.Middlewar.StaticVarables
+namespace FTeam.Middlewar.StaticVarables
 {
     /// <summary>
     /// Static Properties Class
@@ -21,5 +21,23 @@ namespace Fteam.Middlewar.StaticVarables
         /// FTExceptionHandlerOptions
         /// </summary>
         public static FTExceptionHandlerOptions FTExceptionHandlerOptions { get; set; }
+    }
+
+    public class StaticVariablesApi
+    {
+        /// <summary>
+        /// Error Handelign Path To Redirect App
+        /// </summary>
+        public static string ErrorHandeligPathApi { get; set; }
+
+        /// <summary>
+        /// FTServerEmailOptions 
+        /// </summary>
+        public static FTServerEmailOptions FTServerEmailOptionsApi { get; set; }
+
+        /// <summary>
+        /// FTExceptionHandlerOptions
+        /// </summary>
+        public static FTExceptionHandlerOptions FTExceptionHandlerOptionsApi { get; set; }
     }
 }

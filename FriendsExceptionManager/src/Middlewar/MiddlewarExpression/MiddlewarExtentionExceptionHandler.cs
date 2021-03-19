@@ -1,5 +1,5 @@
-﻿using Fteam.Middlewar.Models;
-using Fteam.Middlewar.StaticVarables;
+﻿using FTeam.Middlewar.Models;
+using FTeam.Middlewar.StaticVarables;
 using Microsoft.AspNetCore.Builder;
 using System;
 
@@ -7,7 +7,7 @@ using System;
 //You Can See Other Packages  In https://Github.com/ftmco Or See https://friendstmco.ir
 //Friends Team #Love_Open_Source 
 
-namespace Fteam.Middlewar
+namespace FTeam.Middlewar
 {
     /// <summary>
     /// Friends Team Co Exception Handler Middelware

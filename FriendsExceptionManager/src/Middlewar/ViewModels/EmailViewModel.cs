@@ -1,4 +1,4 @@
-﻿namespace Fteam.Middlewar.Models
+﻿namespace FTeam.Middlewar.Models
 {
     /// <summary>
     /// Send Log Email Modell

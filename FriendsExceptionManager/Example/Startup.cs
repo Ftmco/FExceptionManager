@@ -1,5 +1,5 @@
-using Fteam.Middlewar;
-using Fteam.Middlewar.Models;
+using FTeam.Middlewar;
+using FTeam.Middlewar.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
