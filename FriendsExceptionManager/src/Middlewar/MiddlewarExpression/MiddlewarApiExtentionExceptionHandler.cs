@@ -3,6 +3,10 @@ using FTeam.Middlewar.StaticVarables;
 using Microsoft.AspNetCore.Builder;
 using System;
 
+//Friends Team Co Develop this Pakacge 
+//You Can See Other Packages  In https://Github.com/ftmco Or See https://friendstmco.ir
+//Friends Team #Love_Open_Source 
+
 namespace FTeam.Middlewar
 {
     public static class MiddlewarApiExtentionExceptionHandler
@@ -15,7 +19,7 @@ namespace FTeam.Middlewar
             return app.UseMiddleware<FExceptionApiHandlerMiddleware>();
         }
 
-        public static IApplicationBuilder UseFExceptionHandler(this IApplicationBuilder app, string errorHandelingPath)
+        public static IApplicationBuilder UseFExceptionHandlerApi(this IApplicationBuilder app, string errorHandelingPath)
         {
             if (app == null)
                 throw new ArgumentNullException(nameof(app));
@@ -23,10 +27,10 @@ namespace FTeam.Middlewar
             StaticVariablesApi.ErrorHandeligPathApi = errorHandelingPath ??
                 throw new ArgumentNullException(nameof(errorHandelingPath));
 
-            return app.UseMiddleware<FExceptionApiHandlerMiddleware>();
+            return app.UseFExceptionHandlerApi();
         }
 
-        public static IApplicationBuilder UseFExceptionHandler(this IApplicationBuilder app, FTServerEmailOptions emailOptions)
+        public static IApplicationBuilder UseFExceptionHandlerApi(this IApplicationBuilder app, FTServerEmailOptions emailOptions)
         {
             if (app == null)
                 throw new ArgumentNullException(nameof(app));
@@ -34,10 +38,10 @@ namespace FTeam.Middlewar
             StaticVariablesApi.FTServerEmailOptionsApi = emailOptions ??
                 throw new ArgumentNullException(nameof(emailOptions));
 
-            return app.UseMiddleware<FExceptionApiHandlerMiddleware>();
+            return app.UseFExceptionHandlerApi();
         }
 
-        public static IApplicationBuilder UseFExceptionHandler(this IApplicationBuilder app, FTExceptionHandlerOptions exceptionHandlerOptions)
+        public static IApplicationBuilder UseFExceptionHandlerApi(this IApplicationBuilder app, FTExceptionHandlerOptions exceptionHandlerOptions)
         {
             if (app == null)
                 throw new ArgumentNullException(nameof(app));
@@ -45,7 +49,7 @@ namespace FTeam.Middlewar
             StaticVariablesApi.FTExceptionHandlerOptionsApi = exceptionHandlerOptions ??
                 throw new ArgumentNullException(nameof(exceptionHandlerOptions));
 
-            return app.UseMiddleware<FExceptionApiHandlerMiddleware>();
+            return app.UseFExceptionHandlerApi();
         }
     }
 }

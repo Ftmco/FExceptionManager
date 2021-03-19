@@ -41,7 +41,7 @@ namespace FTeam.Middlewar
             StaticVariables.ErrorHandeligPath = errorHandelingPath ??
                 throw new ArgumentNullException(nameof(errorHandelingPath));
 
-            return app.UseMiddleware<FExceptionHandlerMiddleware>();
+            return app.UseFExceptionHandler();
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace FTeam.Middlewar
             StaticVariables.FTServerEmailOptions = emailOptions ??
                 throw new ArgumentNullException(nameof(emailOptions));
 
-            return app.UseMiddleware<FExceptionHandlerMiddleware>();
+            return app.UseFExceptionHandler();
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace FTeam.Middlewar
             StaticVariables.FTExceptionHandlerOptions = exceptionHandlerOptions ??
                 throw new ArgumentNullException(nameof(exceptionHandlerOptions));
 
-            return app.UseMiddleware<FExceptionHandlerMiddleware>();
+            return app.UseFExceptionHandler();
         }
     }
 }
