@@ -9,8 +9,15 @@ using System;
 
 namespace FTeam.Middlewar
 {
+    /// <summary>
+    /// Restfull Api Exception Handler Middleware
+    /// </summary>
     public static class MiddlewarApiExtentionExceptionHandler
     {
+        /// <summary>
+        /// Use Friends Exception Handler For Rest Api 
+        /// </summary>
+        /// <param name="app">IApplicationBuilder </param>
         public static IApplicationBuilder UseFExceptionHandlerApi(this IApplicationBuilder app)
         {
             if (app == null)
@@ -19,6 +26,11 @@ namespace FTeam.Middlewar
             return app.UseMiddleware<FExceptionApiHandlerMiddleware>();
         }
 
+        /// <summary>
+        /// Use Friends Exception Handler For Rest Api 
+        /// </summary>
+        /// <param name="app">IApplicationBuilder</param>
+        /// <param name="errorHandelingPath">Redirect Controller and Action To Return Response For Client</param>
         public static IApplicationBuilder UseFExceptionHandlerApi(this IApplicationBuilder app, string errorHandelingPath)
         {
             if (app == null)
@@ -30,6 +42,11 @@ namespace FTeam.Middlewar
             return app.UseFExceptionHandlerApi();
         }
 
+        /// <summary>
+        /// Use Friends Exception Handler For Rest Api 
+        /// </summary>
+        /// <param name="app">IApplicationBuilder</param>
+        /// <param name="emailOptions">Send Error Log Email Options</param>
         public static IApplicationBuilder UseFExceptionHandlerApi(this IApplicationBuilder app, FTServerEmailOptions emailOptions)
         {
             if (app == null)
@@ -41,6 +58,11 @@ namespace FTeam.Middlewar
             return app.UseFExceptionHandlerApi();
         }
 
+        /// <summary>
+        /// Use Friends Exception Handler For Rest Api 
+        /// </summary>
+        /// <param name="app">IApplicationBuilder</param>
+        /// <param name="exceptionHandlerOptions">Exception Handler Email and Redirect Path Options</param>
         public static IApplicationBuilder UseFExceptionHandlerApi(this IApplicationBuilder app, FTExceptionHandlerOptions exceptionHandlerOptions)
         {
             if (app == null)
