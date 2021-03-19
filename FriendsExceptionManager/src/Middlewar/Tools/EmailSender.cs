@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using FTeam.Middlewar.Models;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 
-namespace Middlewar.Tools
+namespace FTeam.Middlewar.Tools
 {
     /// <summary>
     /// Email Sender Service
@@ -15,7 +14,7 @@ namespace Middlewar.Tools
         /// Send Email Async
         /// </summary>
         /// <param name="email">Email Info</param>
-        Task SendEmailAsync(EmailViewModel email);
+        Task SendEmailAsync(EmailModel email);
     }
 
     /// <summary>
@@ -23,23 +22,23 @@ namespace Middlewar.Tools
     /// </summary>
     public class EmailSender : IEmailSender
     {
-        public async Task SendEmailAsync(EmailViewModel email) => await Task.Run(() =>
+        public async Task SendEmailAsync(EmailModel email) => await Task.Run(() =>
         {
             MailMessage mailMessage = new()
             {
-                IsBodyHtml = email.IsBodyHtml,
-                From = new(email.From, email.DisplayName),
-                Subject = email.Subject,
-                Body = email.Body
+                IsBodyHtml = email.SendEmail.IsBodyHtml,
+                From = new(email.SendEmail.From, email.EmailServerOptions.DisplayName),
+                Subject = email.SendEmail.Subject,
+                Body = email.SendEmail.Body
             };
 
-            mailMessage.To.Add(email.To);
+            mailMessage.To.Add(email.SendEmail.To);
 
             SmtpClient smtpClient = new()
             {
-                Port = email.Port,
-                Credentials = new NetworkCredential(email.UserName, email.Password),
-                EnableSsl = email.EnableSSL
+                Port = email.EmailServerOptions.Port,
+                Credentials = new NetworkCredential(email.EmailServerOptions.UserName, email.EmailServerOptions.Password),
+                EnableSsl = email.EmailServerOptions.EnableSSL
             };
 
             smtpClient.Send(mailMessage);
